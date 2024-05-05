@@ -18,7 +18,7 @@ all: help
 ## Build:
 build: ## Build the project and put the output binary in out/bin/
 	mkdir -p ./bin
-	GO111MODULE=on $(GOCMD) build -mod vendor -o ./bin/$(BINARY_NAME) ./cmd/ibangen
+	GO111MODULE=on $(GOCMD) build -mod vendor -o ./bin/$(BINARY_NAME)
 
 clean: ## Remove build related files
 	rm -fr ./bin
