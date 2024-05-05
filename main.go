@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"github.com/biter777/countries"
-	iban "github.com/vlasebian/ibangen"
 )
 
 func main() {
@@ -22,7 +21,7 @@ func main() {
 
 	if countryCode := flag.Arg(0); countryCode != "" {
 		countryCode = strings.ToUpper(countryCode)
-		generator, ok := iban.Generators[countryCode]
+		generator, ok := Generators[countryCode]
 		if !ok {
 			fmt.Printf("Could not find generator for country code '%s'.\n", strings.ToLower(countryCode))
 			printSupportedCountries()
@@ -37,8 +36,8 @@ func main() {
 		rand.NewSource(time.Now().UnixNano()),
 	)
 
-	i := seededRand.Intn(len(iban.Generators))
-	for _, generator := range iban.Generators {
+	i := seededRand.Intn(len(Generators))
+	for _, generator := range Generators {
 		if i == 0 {
 			fmt.Println(generator.Generate())
 			break
@@ -50,7 +49,7 @@ func main() {
 
 func printSupportedCountries() {
 	fmt.Println("Supported country codes:")
-	for countryCode := range iban.Generators {
+	for countryCode := range Generators {
 		name := countries.ByName(countryCode).String()
 		fmt.Printf("- '%s' (%s)\n", strings.ToLower(countryCode), name)
 	}
