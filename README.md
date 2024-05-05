@@ -7,7 +7,7 @@ A CLI tool written in Golang for generating IBANs. For testing purposes only.
 # Installation
 
 ```bash
-go install github.com/vlasebian/ibangen@v1.0.0
+go install github.com/vlasebian/ibangen@latest
 ```
 
 # Usage

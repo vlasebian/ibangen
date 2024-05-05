@@ -52,6 +52,6 @@ func printSupportedCountries() {
 	fmt.Println("Supported country codes:")
 	for countryCode := range iban.Generators {
 		name := countries.ByName(countryCode).String()
-		fmt.Printf("'%s' (%s)\n", strings.ToLower(countryCode), name)
+		fmt.Printf("- '%s' (%s)\n", strings.ToLower(countryCode), name)
 	}
 }
