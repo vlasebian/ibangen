@@ -38,7 +38,7 @@ coverage: ## Run the tests of the project and export the coverage
 
 lint: ## Use golintci-lint to check the code style
 	$(eval OUTPUT_OPTIONS = $(shell [ "${EXPORT_RESULT}" == "true" ] && echo "--out-format checkstyle ./... | tee /dev/tty > checkstyle-report.xml" || echo "" ))
-	docker run --rm -v $(shell pwd):/app -w /app golangci/golangci-lint:latest-alpine golangci-lint run --deadline=65s $(OUTPUT_OPTIONS)
+	docker run --rm -v $(shell pwd):/app -w /app golangci/golangci-lint:latest-alpine golangci-lint run --timeout=65s $(OUTPUT_OPTIONS)
 
 ## Help:
 help: ## Show this help.
