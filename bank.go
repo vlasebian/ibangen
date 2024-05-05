@@ -1,4 +1,4 @@
-package iban
+package main
 
 type bank struct {
 	name        string
